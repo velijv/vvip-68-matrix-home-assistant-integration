@@ -1,21 +1,21 @@
-# Интеграция **[WiFi панели / гирлянды на esp8266 от vvip-68](https://github.com/vvip-68/GyverPanelWiFi) с Home Assistant**
+# Integrate **[WiFi panels / garlands on esp8266 by vvip-68](https://github.com/vvip-68/GyverPanelWiFi) with Home Assistant**
 
-Данная интеграция построена на наборе автоматизаций для Home Assistant и позволяет управлять матрицей а также настраивать большую часть параметров.
+This integration is built on a set of automations for Home Assistant and allows you to control the matrix and configure most of the parameters.
 
-### Внешний вид
+### Appearance
 
 ![](https://github.com/tarasifua/vvip-68-matrix-home-assistant-integration/blob/main/screenshot/screenshot.png?raw=true)
 
-### Установка
+### Installation
 
-В свой файл `configuration.yaml` внести строки, которые есть в одноименном файле в репозитории. Если у вас уже есть подключенные файлы `input_boolean`, `input_number`, `input_text`, `input_select`, `sensors` или `script`, перенести содержимое этих файлов в свои.
+In your `configuration.yaml` file, add the lines that are in the file of the same name in the repository. If you already have `input_boolean`, `input_number`, `input_text`, `input_select`, `sensors` or `script` files included, transfer the contents of these files to your own.
 
-Папку `matrix_automations` поместить в свою папку с автоматизациями.
+Place the `matrix_automations` folder in your automations folder.
 
-Содержимое файла `ui-lovelace.yaml` также перенести в свой файл настроек Lovelace.
+The contents of the `ui-lovelace.yaml` file are also transferred to your Lovelace settings file.
 
-Также, для отображения карточек настройки параметров с кнопками `+` и `-` надо установить компонент [numberbox-card](https://github.com/htmltiger/numberbox-card), проще всего это сделать через [HACS](https://hacs.xyz/)
+Also, to display parameter settings cards with `+` and `-` buttons, you need to install the [numberbox-card](https://github.com/htmltiger/numberbox-card) component, the easiest way to do this is through [HACS](https ://hacs.xyz/)
 
-### Настройка
+### Setting
 
-Для корректной работы интеграции, матрица должна слать сообщения на MQTT сервер в топик `WiFiPanel-0`, а также должен быть отключен пакетный режим передачи параметров в прошивке матрицы ( файл `a_def_soft.h`, переменная `bool mqttstatepacket = false;)`
+For the integration to work correctly, the matrix must send messages to the MQTT server in the `WiFiPanel-0` topic, and the batch mode for passing parameters in the matrix firmware must be disabled (file `a_def_soft.h`, variable `bool mqttstatepacket = false;)`
